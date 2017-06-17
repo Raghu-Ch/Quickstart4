@@ -1,0 +1,9 @@
+<h1>Customers</h1>
+<p><i>select a customer</i></p>
+<ul>
+  <li *ngFor="let cust of customers" [ngClass]="{selected: customer===cust}" (click)="customer=cust">{{cust.name}}</li>
+</ul>
+<!--*ngIf Structural Directive show div if no customer is selected-->
+<div *ngIf="customer">
+  <app-customer-detail [customer]="customer" (shift)="shift($event)"></app-customer-detail>
+</div>
